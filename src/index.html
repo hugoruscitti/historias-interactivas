@@ -1,0 +1,33 @@
+<html ng-app='app'>
+  <head>
+    <title></title>
+
+    <link rel="stylesheet" href="css/estilo.css" charset="utf-8">
+
+    <script charset="utf-8" src='js/reload.js'></script>
+
+    <script charset="utf-8" src='js/angular.js'></script>
+    <script charset="utf-8" src='js/app.js'></script>
+    <script charset="utf-8" src='js/controllers/mainCtrl.js'></script>
+    <script charset="utf-8" src='js/factories/scenesFactory.js'></script>
+
+  </head>
+
+  <body ng-controller='MainCtrl'>
+
+  <div class='canvas' ng-mousemove='on_move($event)'>
+
+    <div class='area'
+      style='left:600px; top:210px; width:70px; height:120px'
+      ng-click='ir_a("cuarto")'
+    ></div>
+
+    <img ng-src="escenas/{{data.scenes[data.escena_actual].fondo}}">
+  </div>
+
+    <div class='depuracion' ng-show='data.depuracion'>
+      <pre>{{data|json}}</pre>
+    </div>
+
+  </body>
+</html>
