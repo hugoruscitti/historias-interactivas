@@ -15,29 +15,41 @@
 
   <body ng-controller='MainCtrl'>
 
-    Depuración: <input type='checkbox' ng-model='data.depuracion'></input>
+    <label>depuración: <input type='checkbox' ng-model='data.depuracion'></input></label>
 
-
-
+    <label>areas visibles: <input type='checkbox' ng-model='data.visibles'></input></label>
 
   <div class='canvas' ng-mousemove='on_move($event)'>
     <div class='texto'>{{data.destino}}</div>
 
-
-    <div ng-repeat='n in data.scenes[data.escena_actual].puertas'
+    <div my-draggable ng-repeat='n in data.scenes[data.escena_actual].puertas'
          class='area'
          ng-click='ir_a(n.destino)'
          ng-mouseover='mouse_over(n)'
          ng-style='obtener_estilo_area(n)'></div>
 
-
     <img ng-mouseover='mouse_over(null)' ng-src="escenas/{{data.scenes[data.escena_actual].fondo}}">
+  </div>
+
+  <div class='controles'>
+    <div class='row'>
+      <ul class='lista-items'>
+        <li ng-click='seleccionar(n)' ng-style='obtener_estilo_item_lista(n)' ng-repeat='n in data.scenes[data.escena_actual].puertas'>{{n}}</li>
+    </div>
+
+    <div>
+      <div class='row'>
+      </div>
+
+      <div class='row'>
+      </div>
+    </div>
 
   </div>
 
-    <div class='depuracion' ng-show='data.depuracion'>
-      <pre>{{data|json}}</pre>
-    </div>
+  <div class='depuracion' ng-show='data.depuracion'>
+    <pre>{{data|json}}</pre>
+  </div>
 
   </body>
 </html>
