@@ -1,7 +1,7 @@
 <html ng-app='app'>
   <head>
     <title></title>
-
+    <meta charset='utf-8'></meta>
     <link rel="stylesheet" href="css/estilo.css" charset="utf-8">
 
     <script charset="utf-8" src='js/reload.js'></script>
@@ -15,14 +15,24 @@
 
   <body ng-controller='MainCtrl'>
 
+    Depuración: <input type='checkbox' ng-model='data.depuracion'></input>
+
+
+
+
   <div class='canvas' ng-mousemove='on_move($event)'>
+    <div class='texto'>{{data.destino}}</div>
 
-    <div class='area'
-      style='left:600px; top:210px; width:70px; height:120px'
-      ng-click='ir_a("cuarto")'
-    ></div>
 
-    <img ng-src="escenas/{{data.scenes[data.escena_actual].fondo}}">
+    <div ng-repeat='n in data.scenes[data.escena_actual].puertas'
+         class='area'
+         ng-click='ir_a(n.destino)'
+         ng-mouseover='mouse_over(n)'
+         ng-style='obtener_estilo_area(n)'></div>
+
+
+    <img ng-mouseover='mouse_over(null)' ng-src="escenas/{{data.scenes[data.escena_actual].fondo}}">
+
   </div>
 
     <div class='depuracion' ng-show='data.depuracion'>

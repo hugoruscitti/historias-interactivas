@@ -19,3 +19,23 @@
   background-color: green;
   cursor: pointer;
 }
+
+.texto {
+  text-align: center;
+  font-size: large;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  color: white;
+  text-shadow: 0 0 5px black;
+}
+
+
+img {
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -o-user-select: none;
+  user-select: none;
+}
