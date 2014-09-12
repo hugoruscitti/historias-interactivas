@@ -14,10 +14,9 @@
   </head>
 
   <body ng-controller='MainCtrl'>
-
     <label>depuración: <input type='checkbox' ng-model='data.depuracion'></input></label>
 
-    <label>areas visibles: <input type='checkbox' ng-model='data.visibles'></input></label>
+    <label>areas visibles: <input type='checkbox' ng-model='data.areas_visibles'></input></label>
 
   <div class='canvas' ng-mousemove='on_move($event)'>
     <div class='texto'>{{data.destino}}</div>
@@ -37,12 +36,41 @@
         <li ng-click='seleccionar(n)' ng-style='obtener_estilo_item_lista(n)' ng-repeat='n in data.scenes[data.escena_actual].puertas'>{{n}}</li>
     </div>
 
-    <div>
+    <div ng-show='data.item_seleccionado_id !== -1'>
+
       <div class='row'>
+        <label> nombre <input type='text' ng-model='data.item_seleccionado.nombre'/></label>
+          {{data.item_seleccionado}}
       </div>
 
       <div class='row'>
+        <label> x <input type='range' min='0' max='800' ng-model='data.item_seleccionado.x'/></label>
       </div>
+
+      <div class='row'>
+        <label> y <input type='range' min='0' max='600' ng-model='data.item_seleccionado.y'/></label>
+      </div>
+
+      <div class='row'>
+        <label> w <input type='range' min='30' max='640' ng-model='data.item_seleccionado.w'/></label>
+      </div>
+
+      <div class='row'>
+        <label> h <input type='range' min='30' max='640' ng-model='data.item_seleccionado.h'/></label>
+      </div>
+
+      <div class='row'>
+        <label> destino <select ng-model="data.item_seleccionado.destino"
+                                ng-options="item as item.name for item in items"></select>
+
+                                <select
+                                ng-model="data.item_seleccionado.destino"
+                                ng-options="i.id as i.name for i in obtener_escenas()">
+        </label>
+
+
+      </div>
+
     </div>
 
   </div>

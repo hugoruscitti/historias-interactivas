@@ -17,7 +17,6 @@
 
 .area {
   position: absolute;
-  opacity: .5;
   background-color: green;
   cursor: pointer;
 }
@@ -67,4 +66,5 @@ img {
   bottom: 0;
   padding: 5px;
   border-left: 1px solid gray;
+  background-color: white;
 }
