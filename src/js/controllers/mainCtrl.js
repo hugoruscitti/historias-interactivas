@@ -7,6 +7,7 @@ app.controller('MainCtrl', function($scope, Scenes) {
   $scope.data.depuracion = false;
   $scope.data.areas_visibles = true;
   $scope.data.scenes = Scenes.obtener_escenas();
+  $scope.data.nombres_escenas = Scenes.obtener_nombres_escenas();
   $scope.data.escena_actual = 'main';
   $scope.data.destino = '';
   $scope.data.item_seleccionado_id = -1;

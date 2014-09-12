@@ -4,6 +4,14 @@ var app = angular.module('app');
 app.factory('Scenes', function() {
   var obj = {};
 
+  obj.obtener_nombres_escenas = function() {
+    return [
+      "main",
+      "cuarto",
+      "calle",
+    ]
+  }
+
   obj.obtener_escenas = function() {
     return {
       main: {

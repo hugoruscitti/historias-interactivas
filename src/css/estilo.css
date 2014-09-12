@@ -68,3 +68,8 @@ img {
   border-left: 1px solid gray;
   background-color: white;
 }
+
+
+input[type=range] {
+  width: 80%;
+}
