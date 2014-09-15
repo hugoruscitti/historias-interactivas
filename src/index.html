@@ -7,9 +7,10 @@
     <script charset="utf-8" src='js/reload.js'></script>
 
     <script charset="utf-8" src='js/angular.js'></script>
+    <script charset="utf-8" src='js/utils.js'></script>
     <script charset="utf-8" src='js/app.js'></script>
     <script charset="utf-8" src='js/controllers/mainCtrl.js'></script>
-    <script charset="utf-8" src='js/factories/scenesFactory.js'></script>
+    <script charset="utf-8" src='js/factories/escenasFactory.js'></script>
 
   </head>
 
@@ -21,19 +22,26 @@
   <div class='canvas' ng-mousemove='on_move($event)'>
     <div class='texto'>{{data.destino}}</div>
 
-    <div my-draggable ng-repeat='n in data.scenes[data.escena_actual].puertas'
+    <div my-draggable ng-repeat='n in data.escena_actual.puertas'
          class='area'
          ng-click='ir_a(n.destino)'
          ng-mouseover='mouse_over(n)'
          ng-style='obtener_estilo_area(n)'></div>
 
-    <img ng-mouseover='mouse_over(null)' ng-src="escenas/{{data.scenes[data.escena_actual].fondo}}">
+    <img ng-mouseover='mouse_over(null)' ng-src="escenas/{{data.escena_actual.fondo}}">
   </div>
 
   <div class='controles'>
     <div class='row'>
+      <button ng-click='crear_area()'>Crear Area</button>
+      ||
+      <button ng-click='guardar()'>Guardar</button>
+      <button ng-click='restaurar()'>Restaurar</button>
+    </div>
+
+    <div class='row'>
       <ul class='lista-items'>
-        <li ng-click='seleccionar(n)' ng-style='obtener_estilo_item_lista(n)' ng-repeat='n in data.scenes[data.escena_actual].puertas'>{{n.nombre}} [id:{{n.id}}]</li>
+        <li ng-click='seleccionar(n)' ng-style='obtener_estilo_item_lista(n)' ng-repeat='n in data.escena_actual.puertas'>{{n.nombre}} [id:{{n.id}}]</li>
     </div>
 
     <div ng-show='data.item_seleccionado_id !== -1'>
