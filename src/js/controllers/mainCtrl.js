@@ -16,7 +16,16 @@ app.controller('MainCtrl', function($scope, Escenas) {
 
   $scope.data.escena_actual = Escenas.definir_escena('main');
 
+  $scope.guardar = function() {
+    Escenas.guardar();
+  }
 
+  $scope.restaurar = function() {
+    Escenas.restaurar(function() {
+      $scope.data.escena_actual = Escenas.recargar_escena();
+      $scope.$apply();
+    });
+  }
 
   /**
    * Cambia la escena escena actual.

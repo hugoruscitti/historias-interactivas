@@ -1,4 +1,5 @@
 var app = angular.module('app');
+var fs = require('fs');
 
 
 app.factory('Escenas', function() {
@@ -61,7 +62,7 @@ app.factory('Escenas', function() {
     var escena_actual = obj.obtener_escena_actual();
 
     var area = {
-      id: 132733,
+      id: random(),
       x: 56,
       y: 56,
       w: 90,
@@ -73,6 +74,35 @@ app.factory('Escenas', function() {
     escena_actual.puertas.push(area);
   }
 
+  obj.restaurar = function(success) {
+    var filename = './escenas.json';
+
+    fs.readFile(filename, 'utf8', function (err, jsondata) {
+      if (err) {
+        alert(err)
+        return;
+      }
+
+      data = JSON.parse(jsondata);
+      console.log("cargando escena");
+
+      success.call();
+
+    });
+  }
+
+  obj.guardar = function() {
+    var filename = './escenas.json';
+
+    fs.writeFile(filename, JSON.stringify(data, null, 4), function(err) {
+      if(err) {
+        alert(err);
+      } else {
+        console.log("JSON saved to " + filename);
+      }
+    });
+  }
+
   obj.obtener_escenas = function() {
     return data;
   };
@@ -80,6 +110,10 @@ app.factory('Escenas', function() {
   obj.definir_escena = function(nombre_de_la_escena) {
     nombre_de_la_escena_actual = nombre_de_la_escena;
     return obj.obtener_escena_actual();
+  }
+
+  obj.recargar_escena = function() {
+    return obj.definir_escena(nombre_de_la_escena_actual);
   }
 
   /*

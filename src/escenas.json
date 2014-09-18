@@ -1,0 +1,85 @@
+{
+    "main": {
+        "fondo": "casa.png",
+        "puertas": [
+            {
+                "id": 1233333,
+                "x": 600,
+                "y": 210,
+                "w": 70,
+                "h": 120,
+                "nombre": "puerta a la habitación",
+                "destino": "cuarto",
+                "$$hashKey": "object:3"
+            },
+            {
+                "id": 344444,
+                "x": 100,
+                "y": 110,
+                "w": 20,
+                "h": 20,
+                "nombre": "bug",
+                "destino": "cuarto",
+                "$$hashKey": "object:4"
+            },
+            {
+                "id": 7078,
+                "x": "325",
+                "y": 56,
+                "w": 90,
+                "h": 190,
+                "nombre": "...",
+                "destino": "",
+                "$$hashKey": "object:9"
+            },
+            {
+                "id": 6654,
+                "x": 56,
+                "y": 56,
+                "w": 90,
+                "h": 190,
+                "nombre": "...",
+                "destino": "",
+                "$$hashKey": "object:12"
+            },
+            {
+                "id": 5903,
+                "x": 56,
+                "y": 56,
+                "w": 90,
+                "h": 190,
+                "nombre": "...",
+                "destino": "",
+                "$$hashKey": "object:15"
+            },
+            {
+                "id": 9287,
+                "x": 56,
+                "y": 56,
+                "w": 90,
+                "h": 190,
+                "nombre": "...",
+                "destino": "",
+                "$$hashKey": "object:18"
+            }
+        ]
+    },
+    "cuarto": {
+        "fondo": "cuarto.png",
+        "puertas": [
+            {
+                "id": 1733,
+                "x": 256,
+                "y": 256,
+                "w": 70,
+                "h": 120,
+                "nombre": "salir",
+                "destino": "main"
+            }
+        ]
+    },
+    "calle": {
+        "fondo": "calle.png",
+        "puertas": []
+    }
+}
