@@ -2,6 +2,8 @@
   "name": "historias-interactivas",
   "main": "index.html",
   "window": {
-    "toolbar": true
+    "toolbar": true,
+    "width": 1700,
+    "height": 800
   }
 }

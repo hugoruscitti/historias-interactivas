@@ -13,11 +13,14 @@
 
 .canvas {
   position: relative;
+  border: 1px solid red;
+  overflow: hidden;
 }
 
 .area {
   position: absolute;
   background-color: green;
+  border: 1px solid darkgreen;
   cursor: pointer;
 }
 
@@ -57,6 +60,19 @@ img {
 .lista-items li.seleccionado {
   background-color: yellow;
 }
+.panel-title > a {
+    display: block;
+    font-weight: normal;
+    font-size: small;
+    padding: 7px;
+}
+
+.panel-title > a:hover {
+    display: block;
+    text-decoration: none;
+    cursor: pointer;
+    background-color: #fff99a;
+}
 
 .controles {
   position: absolute;
@@ -65,11 +81,49 @@ img {
   top: 0;
   bottom: 0;
   padding: 5px;
-  border-left: 1px solid gray;
-  background-color: white;
+  background-color: rgba(255, 255, 255, 0.85);
+  border-left: 3px solid white;
 }
 
 
 input[type=range] {
   width: 80%;
+}
+
+.barra-botones {
+    margin: 10px;
+}
+
+.barra-botones-lateral {
+    margin: 10px;
+    margin-left: 0;
+}
+
+.panel-default > .panel-heading {
+    background-image: none;
+    padding: 0;
+}
+
+.panel-title {
+}
+
+.botones-especiales-area {
+    text-align: right;
+}
+
+.range {
+    width: 220px;
+}
+
+.tab-content {
+    margin-top: 1em;
+    margin-bottom: 1em;
+}
+
+.panel {
+    border-radius: 0 !important;
+}
+
+.nav {
+    cursor: pointer;
 }

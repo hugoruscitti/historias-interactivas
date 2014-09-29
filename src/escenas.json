@@ -4,7 +4,7 @@
         "puertas": [
             {
                 "id": 1233333,
-                "x": 600,
+                "x": "603",
                 "y": 210,
                 "w": 70,
                 "h": 120,
@@ -13,54 +13,14 @@
                 "$$hashKey": "object:3"
             },
             {
-                "id": 344444,
-                "x": 100,
-                "y": 110,
-                "w": 20,
-                "h": 20,
-                "nombre": "bug",
-                "destino": "cuarto",
-                "$$hashKey": "object:4"
-            },
-            {
-                "id": 7078,
-                "x": "325",
-                "y": 56,
-                "w": 90,
-                "h": 190,
-                "nombre": "...",
-                "destino": "",
-                "$$hashKey": "object:9"
-            },
-            {
                 "id": 6654,
-                "x": 56,
-                "y": 56,
-                "w": 90,
-                "h": 190,
-                "nombre": "...",
-                "destino": "",
+                "x": "0",
+                "y": "153",
+                "w": "75",
+                "h": "227",
+                "nombre": "Ir a la calle",
+                "destino": "calle",
                 "$$hashKey": "object:12"
-            },
-            {
-                "id": 5903,
-                "x": 56,
-                "y": 56,
-                "w": 90,
-                "h": 190,
-                "nombre": "...",
-                "destino": "",
-                "$$hashKey": "object:15"
-            },
-            {
-                "id": 9287,
-                "x": 56,
-                "y": 56,
-                "w": 90,
-                "h": 190,
-                "nombre": "...",
-                "destino": "",
-                "$$hashKey": "object:18"
             }
         ]
     },
@@ -69,17 +29,34 @@
         "puertas": [
             {
                 "id": 1733,
-                "x": 256,
-                "y": 256,
-                "w": 70,
-                "h": 120,
+                "x": "225",
+                "y": "211",
+                "w": "59",
+                "h": "200",
                 "nombre": "salir",
-                "destino": "main"
+                "destino": "main",
+                "$$hashKey": "object:36"
             }
         ]
     },
     "calle": {
         "fondo": "calle.png",
-        "puertas": []
+        "puertas": [
+            {
+                "id": 4601,
+                "x": "0",
+                "y": "289",
+                "w": 90,
+                "h": "255",
+                "nombre": "Ingresar a la casa",
+                "destino": "main",
+                "$$hashKey": "object:38"
+            }
+        ]
+    },
+    "_proyecto": {
+        "titulo": "Sin título",
+        "ancho": 123,
+        "alto": 200
     }
 }

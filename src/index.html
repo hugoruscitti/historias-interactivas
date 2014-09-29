@@ -1,24 +1,20 @@
 <html ng-app='app'>
   <head>
-    <title></title>
+    <title>Historias Interactivas</title>
     <meta charset='utf-8'></meta>
+    <link rel="stylesheet" href="css/bootstrap-theme.css" charset="utf-8">
+    <link rel="stylesheet" href="css/bootstrap.css" charset="utf-8">
     <link rel="stylesheet" href="css/estilo.css" charset="utf-8">
-
-
-    <script charset="utf-8" src='js/angular.js'></script>
-    <script charset="utf-8" src='js/utils.js'></script>
-    <script charset="utf-8" src='js/app.js'></script>
-    <script charset="utf-8" src='js/controllers/mainCtrl.js'></script>
-    <script charset="utf-8" src='js/factories/escenasFactory.js'></script>
-
   </head>
 
   <body ng-controller='MainCtrl'>
-    <label>depuración: <input type='checkbox' ng-model='data.depuracion'></input></label>
 
-    <label>areas visibles: <input type='checkbox' ng-model='data.areas_visibles'></input></label>
+  <div class="barra-botones">
+    <button class="btn btn-primary" btn-checkbox ng-model='data.areas_visibles'><i class="glyphicon glyphicon-eye-open"></i> Areas visibles</button>
+    <button class='btn btn-info' ng-click="zoom()"><i class="glyphicon glyphicon-fullscreen"></i> Zoom</button>
+  </div>
 
-  <div class='canvas' ng-mousemove='on_move($event)'>
+  <div class='canvas' ng-style='obtener_estilo_canvas()' ng-mousemove='on_move($event)'>
     <div class='texto'>{{data.destino}}</div>
 
     <div my-draggable ng-repeat='n in data.escena_actual.puertas'
@@ -31,59 +27,72 @@
   </div>
 
   <div class='controles'>
-    <div class='row'>
-      <button ng-click='crear_area()'>Crear Area</button>
-      ||
-      <button ng-click='guardar()'>Guardar</button>
-      <button ng-click='restaurar()'>Restaurar</button>
-    </div>
-
-    <div class='row'>
-      <ul class='lista-items'>
-        <li ng-click='seleccionar(n)' ng-style='obtener_estilo_item_lista(n)' ng-repeat='n in data.escena_actual.puertas'>{{n.nombre}} [id:{{n.id}}]</li>
-    </div>
-
-    <div ng-show='data.item_seleccionado_id !== -1'>
-      <div class='row'>
-        <pre>{{data.item_seleccionado|json}}</pre>
-      </div>
-
-      <div class='row'>
-        <label> nombre <input type='text' ng-model='data.item_seleccionado.nombre'/></label>
-      </div>
-
-      <div class='row'>
-        <label> x <input type='range' min='0' max='800' ng-model='data.item_seleccionado.x'/></label>
-      </div>
-
-      <div class='row'>
-        <label> y <input type='range' min='0' max='600' ng-model='data.item_seleccionado.y'/></label>
-      </div>
-
-      <div class='row'>
-        <label> w <input type='range' min='30' max='640' ng-model='data.item_seleccionado.w'/></label>
-      </div>
-
-      <div class='row'>
-        <label> h <input type='range' min='30' max='640' ng-model='data.item_seleccionado.h'/></label>
-      </div>
-
-      <div class='row'>
-        <label> destino <select
-                                ng-model="data.item_seleccionado.destino"
-                                ng-options="i for i in data.nombres_escenas">
-        </label>
-
-
-      </div>
+    <div class="barra-botones-lateral">
+      <button class="btn btn-primary" ng-click='guardar()'><i class="glyphicon glyphicon-save"></i> Guardar</button>
+      <button class="btn btn-primary" ng-click='restaurar()'><i class="glyphicon glyphicon-open"></i> Restaurar</button>
 
     </div>
 
-  </div>
+    <div>
 
-  <div class='depuracion' ng-show='data.depuracion'>
-    <pre>{{data|json}}</pre>
+        <tabset>
+
+            <tab heading="Areas">
+
+                <accordion close-others="false">
+
+                    <accordion-group ng-mouseover="data.item_seleccionado_id = n.id" heading="{{n.nombre}} [id:{{n.id}}]"  ng-repeat='n in data.escena_actual.puertas'>
+
+                        <div>
+                            <label>Nombre <input type='text' ng-model='n.nombre'/></label>
+                        </div>
+
+                        <div>
+                            <label>Destino <select ng-model="n.destino"
+                                                   ng-options="i for i in data.nombres_escenas"></select>
+                            </label>
+                        </div>
+
+                        <div>
+                            <label class="range"> x <input type='range' min='0' max='800' ng-model='n.x'/></label>
+                            <label class="range"> y <input type='range' min='0' max='600' ng-model='n.y'/></label>
+                        </div>
+
+                        <div>
+                            <label class="range"> w <input type='range' min='30' max='640' ng-model='n.w'/></label>
+                            <label class="range"> h <input type='range' min='30' max='640' ng-model='n.h'/></label>
+                        </div>
+
+                        <div class="botones-especiales-area">
+                            <button class="btn btn-danger" ng-click="eliminar_area(n)">Eliminar</button>
+                        </div>
+
+                    </accordion-group>
+
+                </accordion>
+
+            </tab>
+
+            <tab heading="Proyecto">
+                {{data}}
+            </tab>
+
+        </tabset>
+
+        <button class="btn btn-default" ng-click='crear_area()'><i class="glyphicon glyphicon-plus-sign"></i> Crear Area</button>
+    </div>
+
+
   </div>
 
   </body>
+
+  <script charset="utf-8" src='js/libs/zoom.js'></script>
+  <script charset="utf-8" src='js/libs/angular.js'></script>
+  <script charset="utf-8" src='js/libs/ui-bootstrap-tpls-0.11.2.js'></script>
+  <script charset="utf-8" src='js/utils.js'></script>
+  <script charset="utf-8" src='js/app.js'></script>
+  <script charset="utf-8" src='js/controllers/mainCtrl.js'></script>
+  <script charset="utf-8" src='js/factories/escenasFactory.js'></script>
+
 </html>
