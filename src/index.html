@@ -74,7 +74,16 @@
             </tab>
 
             <tab heading="Proyecto">
-                {{data}}
+
+                <div>
+                    <label>Nombre <input type='text' ng-model='data.preferencias.titulo'/></label>
+                </div>
+
+                <div>
+                    <label class="range"> w <input type='range' min='30' max='1200' ng-model='data.preferencias.ancho'/>{{data.preferencias.ancho}}</label>
+                    <label class="range"> h <input type='range' min='30' max='1200' ng-model='data.preferencias.alto'/>{{data.preferencias.alto}}</label>
+                </div>
+
             </tab>
 
         </tabset>

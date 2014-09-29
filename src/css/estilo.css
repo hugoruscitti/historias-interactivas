@@ -13,8 +13,8 @@
 
 .canvas {
   position: relative;
-  border: 1px solid red;
   overflow: hidden;
+  background-color: #828282;
 }
 
 .area {

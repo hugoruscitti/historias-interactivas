@@ -99,7 +99,6 @@ app.factory('Escenas', function() {
   };
 
   obj.obtener_preferencias_del_proyecto = function() {
-      console.log(data);
       return data._proyecto || {};
   };
 

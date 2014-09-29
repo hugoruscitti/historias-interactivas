@@ -55,8 +55,8 @@
         ]
     },
     "_proyecto": {
-        "titulo": "Sin título",
-        "ancho": 123,
-        "alto": 200
+        "titulo": "ejemplo",
+        "ancho": "959",
+        "alto": "540"
     }
 }

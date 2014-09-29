@@ -9,7 +9,7 @@ app.controller('MainCtrl', function($scope, Escenas) {
   $scope.data.destino = '';
   $scope.data.item_seleccionado_id = -1;
   $scope.data.item_seleccionado = {};
-  $scope.data.preferencias = Escenas.obtener_preferencias_del_proyecto();
+  $scope.data.preferencias = {};
 
   $scope.zoom = function() {
       /* Realiza un acercamiento a la ventana principal de juego. */
@@ -25,6 +25,7 @@ app.controller('MainCtrl', function($scope, Escenas) {
   $scope.restaurar = function() {
     Escenas.restaurar(function() {
       $scope.data.escena_actual = Escenas.recargar_escena();
+      $scope.data.preferencias = Escenas.obtener_preferencias_del_proyecto();
       $scope.$apply();
     });
   };
