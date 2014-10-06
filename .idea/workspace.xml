@@ -2,11 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d9fb66be-1382-4e22-a766-8083cfdf1ccd" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/escenas.json" afterPath="$PROJECT_DIR$/src/escenas.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/js/factories/escenasFactory.js" afterPath="$PROJECT_DIR$/src/js/factories/escenasFactory.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/css/estilo.css" afterPath="$PROJECT_DIR$/src/css/estilo.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/index.html" afterPath="$PROJECT_DIR$/src/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/js/controllers/mainCtrl.js" afterPath="$PROJECT_DIR$/src/js/controllers/mainCtrl.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="historias-interactivas.iws" />
@@ -290,7 +285,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="371" y="43" width="1474" height="1005" extended-state="1" />
+    <frame x="371" y="43" width="1474" height="1005" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />

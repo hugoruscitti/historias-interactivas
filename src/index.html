@@ -28,8 +28,8 @@
 
   <div class='controles'>
     <div class="barra-botones-lateral">
+      <button class="btn btn-primary" ng-click='abrir()'><i class="glyphicon glyphicon-open"></i> Abrir</button>
       <button class="btn btn-primary" ng-click='guardar()'><i class="glyphicon glyphicon-save"></i> Guardar</button>
-      <button class="btn btn-primary" ng-click='restaurar()'><i class="glyphicon glyphicon-open"></i> Restaurar</button>
 
     </div>
 
@@ -94,6 +94,10 @@
 
   </div>
 
+
+  <input style="display:none;" id="fileDialog" accept=".hint" type="file" />
+  <input style="display:none;" id="saveDialog" accept=".hint" type="file" nwsaveas="juego.hint" />
+
   </body>
 
   <script charset="utf-8" src='js/libs/zoom.js'></script>
@@ -103,5 +107,6 @@
   <script charset="utf-8" src='js/app.js'></script>
   <script charset="utf-8" src='js/controllers/mainCtrl.js'></script>
   <script charset="utf-8" src='js/factories/escenasFactory.js'></script>
+  <script charset="utf-8" src='js/factories/guiFactory.js'></script>
 
 </html>

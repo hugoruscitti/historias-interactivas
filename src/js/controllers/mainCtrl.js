@@ -1,6 +1,6 @@
 var app = angular.module('app');
 
-app.controller('MainCtrl', function($scope, Escenas) {
+app.controller('MainCtrl', function($scope, Escenas, Gui) {
   $scope.data = {};
   $scope.data.mouse_x = 0;
   $scope.data.mouse_y = 0;
@@ -19,7 +19,17 @@ app.controller('MainCtrl', function($scope, Escenas) {
   };
 
   $scope.guardar = function() {
-    Escenas.guardar();
+    Gui.save().then(function(ruta) {
+      Escenas.guardar(ruta);
+    });
+  };
+
+  $scope.abrir = function() {
+    Gui.open().then(function(ruta) {
+      Escenas.abrir(ruta);
+      $scope.data.escena_actual = Escenas.recargar_escena();
+      $scope.data.preferencias = Escenas.obtener_preferencias_del_proyecto();
+    });
   };
 
   $scope.restaurar = function() {

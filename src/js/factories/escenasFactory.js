@@ -44,28 +44,30 @@ app.factory('Escenas', function() {
   obj.restaurar = function(success) {
     var filename = './escenas.json';
 
-    fs.readFile(filename, 'utf8', function (err, jsondata) {
-      if (err) {
-        alert(err);
-        return;
-      }
-
+    try {
+      var jsondata = fs.readFileSync(filename, 'utf-8');
+      console.log(data);
       data = JSON.parse(jsondata);
-
       success.call();
-    });
+    } catch (err) {
+      alert(err);
+      return;
+    };
+
   };
 
-  obj.guardar = function() {
-    var filename = './escenas.json';
+  obj.abrir = function(filename) {
+    var jsondata = fs.readFileSync(filename, 'utf-8');
+    data = JSON.parse(jsondata);
+  }
 
-    fs.writeFile(filename, JSON.stringify(data, null, 4), function(err) {
-      if(err) {
-        alert(err);
-      } else {
-        console.log("JSON saved to " + filename);
-      }
-    });
+
+
+  obj.guardar = function(filename) {
+    var retorno = fs.writeFileSync(filename, JSON.stringify(data, null, 4));
+
+    if (retorno)
+      console.log(retorno);
   };
 
   obj.obtener_escenas = function() {
